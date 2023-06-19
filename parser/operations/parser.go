@@ -58,10 +58,13 @@ func (p *parser) parseOperationFromComment(pkgPath string, pkgName string, comme
 		return p.parseHeaders(pkgPath, pkgName, operation, strings.TrimSpace(comment[len(attribute):]))
 	case "@success", "@failure":
 		return p.parseResponseComment(pkgPath, pkgName, operation, strings.TrimSpace(comment[len(attribute):]))
+	case "@security":
+		return p.parseSecurity(pkgPath, pkgName, operation, strings.TrimSpace(comment[len(attribute):]))
 	case "@resource", "@tag":
 		p.parseResourceAndTag(comment, attribute, operation)
 	case "@route", "@router":
 		return p.parseRouteComment(operation, comment)
+
 	}
 	return nil
 }
