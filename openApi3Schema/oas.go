@@ -82,9 +82,13 @@ type OperationObject struct {
 	// ExternalDocs
 	// OperationID
 	// Callbacks
+
 	// Deprecated
+	
 	// Security
+	Security []map[string][]string `json:"security,omitempty"`
 	// Servers
+
 }
 
 type ParameterObject struct {
